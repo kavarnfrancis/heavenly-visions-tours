@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Title</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Contact Portal</title>
+  </head>
+  <body>
+    <div>
+      <h1>Contact Customer Portal</h1>
+      <input type="date" />
+      <div>
+        <input type="checkbox" id="morning-tour" />
+        <label>Morning Tour</label>
+        <input type="checkbox" id="afternoon-tour" />
+        <label>Afternoon Tour</label>
+        <input type="checkbox" id="evening-tour" />
+        <label>Evening Tour</label>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <label>All customers</label>
+      </div>
+      <div>
+        <label>Individual Customer</label>
+        <select name="customers" id="customers">
+          <option>Adam Scott</option>
+          <option>Michael Cera</option>
+          <option>Michael Phelps</option>
+          <option>Michelle Obama</option>
+        </select>
+      </div>
+    </div>
+    <form>
+      <label for="message">Enter your message:</label><br />
+      <textarea
+        id="message"
+        name="user_message"
+        rows="5"
+        cols="40"
+        placeholder="Type your message here..."
+      ></textarea
+      ><br />
+      <input type="submit" value="Send Message" />
+    </form>
+  </body>
 </html>
