@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="booking.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Heavenly Visions</h1>
+        <nav>
+            <a class="navButton" href="index.html">Home</a>
+            <a class="navButton" href="booking.html">Book</a>
+            <a class="navButton admin" href="customer-contact-portal.html">Contact Portal</a> <!-- if user is not admin, then visibility = hidden.-->
+        </nav>
+    </header>
+
+    <section id="bookingForm">
+
+        <h2>Booking :</h2>
+
+        <div id="tourSelect">
+            
+        </div>
+
+        
+        <div id="packageSelect">
+            <input type="radio" name="packagesel" value="Standard"> Standard
+            <input type="radio" name="packagesel" value="Specialized"> Specialized
+        </div>
+
+        <div id="extrasSelect">
+            <p><input type="checkbox" name="accommodationSel"> Accommodation
+                <div id="bedInput"> 
+                    <h4 class="extraInputTitle">Beds :</h4>
+                    <p>Double -> <input class="numberInput" type="number" name="doubleBedInput"> </p>
+                    <p>Single -> <input class="numberInput" type="number" name="singleBedInput"> </p>
+                </div>
+            </p>
+            <p><input type="checkbox" name="cateringSel"> Catering
+                <p id="allergenInput"> Allergens 
+                    <p>Dairy allergy / intolerance <input type="checkbox" name="dairy"> </p>
+                    <p>Gluten-free / Coeliac <input type="checkbox" name="gluten"> </p>
+                    <p>Soy allergy <input type="checkbox" name="soy"> </p>
+                    <p>Nut allergy <input type="checkbox" name="nuts"> </p>
+                    <div id="nutInput"> 
+                        <p><input type="checkbox" name="peanut">Peanuts </p>
+                        <p><input type="checkbox" name="pinenut">Pine nuts </p>
+                        <p><input type="checkbox" name="walnut">Walnuts </p>
+                        <p><input name="nutMisc">Other </p>
+                        
+                    </div>
+                </p>
+            </p>
+            <p><input type="checkbox" name="transportSel"> Transport 
+                <p id="addressInput"> Address <input type="text" name="addressInput"></p>
+            </p>
+        </div>
+
+        <div id="finalizeForm">
+            <button id="checkoutButton">Checkout</button>
+            <button>Clear Form</button>
+        </div>
+
+    </section>
+
+
+</body>
+</html>
