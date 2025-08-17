@@ -1,0 +1,65 @@
+
+
+:root {
+    --primary-colour:  rgb(229, 209, 238);
+    --secondary-colour: rgb(225, 145, 241);
+    --highlight-colour: rgb(135, 18, 145);
+    --base-colour: rgb(53, 53, 53);
+    --font-colour: rgb(65, 65, 65);
+
+}
+
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--font-colour);
+
+}
+
+header {
+    background-color: var(--base-colour);
+    padding: 2%;
+    border-style:ridge;
+    border-color: var(--primary-colour);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+section {
+    border-style:ridge;
+    border-radius: 20px;
+    border-color: var(--secondary-colour);
+
+}
+
+header h1 {
+    color:var(--primary-colour);
+    font-weight: lighter;
+}
+
+header nav {
+    border: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+header a{
+    color: var(--primary-colour);
+    text-decoration: none;
+    background-color: var(--primary-colour);
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+header a:visited{
+    color: var(--highlight-colour);
+}
+
