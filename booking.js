@@ -1,8 +1,11 @@
 
 // extra selection choices
-const packageSel = document.getElementById('packagesel');
-const accommodationSel = document.getElementById('accommodationSel');
+const tourSel = document.getElementsByName('tourSel'); // radio
+const packageSel = document.getElementsByName('packagesel');
+const accommodationSel = document.getElementById('accommodationSel'); // checkbox
 const cateringSel = document.getElementById('cateringSel');
+
+
 
 // extra selection expanding
 const bedSection = document.getElementById('bedSection');
@@ -19,12 +22,47 @@ const dairySel = document.getElementsByName('dairy');
 const glutenSel = document.getElementsByName('gluten');
 const soySel = document.getElementsByName('soy');
 const nutsSel = document.getElementsByName('nuts');
+const allergyMisc = document.getElementsByName('allergyMisc');
 
-const peanutSel = document.getElementsByName('peanut');
-const pinenutSel = document.getElementsByName('pinenut');
-const walnutSel = document.getElementsByName('walnut');
 
-const nutMiscSel = document.getElementsByName('nutMisc');
+
+function updateOrder(){
+
+}
+
+
+let tour = '';
+let tourCost = 0;
+// tours
+for (let selection of tourSel){
+    selection.addEventListener('change', (event => {
+    if (selection.value == 'halberryPass'){
+    tour = 'Halberry Pass';
+    tourCost = 20;
+    } else if (selection.value == 'pintoReserve'){
+
+    } else {
+
+    }
+    console.log(selection.value);
+    updateOrder();
+    }));
+}
+
+
+// package
+for (let selection of packageSel){
+    selection.addEventListener('change', (event => {
+    if (selection.value == 'standard'){
+
+    } else {
+
+    }
+    console.log(selection.value);
+    updateOrder();
+    }));
+}
+
 
 
 

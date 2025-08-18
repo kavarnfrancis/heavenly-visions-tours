@@ -66,12 +66,14 @@ button:active {
     align-items: center;
     justify-content: flex-start;
     margin: 20px;
+    flex-grow: 1;
     
 }
 
 #finalizeForm {
     align-self: flex-end;
     order: 3;
+    margin: 20px
     
 }
 

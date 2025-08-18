@@ -1,8 +1,8 @@
 
 
 :root {
-    --primary-colour:  rgb(229, 209, 238);
-    --secondary-colour: rgb(225, 145, 241);
+    --primary-colour:  rgb(224, 217, 255);
+    --secondary-colour: rgb(104, 56, 114);
     --highlight-colour: rgb(135, 18, 145);
     --base-colour: rgb(53, 53, 53);
     --font-colour: rgb(65, 65, 65);
@@ -14,16 +14,18 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--font-colour);
-
+    background-color: var(--base-colour);
 }
 
 header {
-    background-color: var(--base-colour);
+    background-color: var(--secondary-colour);
     padding: 2%;
+    margin: 0;
+    /*
     border-style:ridge;
     border-color: var(--primary-colour);
     border-radius: 20px;
-
+    */
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -32,9 +34,10 @@ header {
 }
 
 section {
-    border-style:ridge;
+    
     border-radius: 20px;
-    border-color: var(--secondary-colour);
+    /*border-color: var(--secondary-colour);
+    border-style:ridge;*/
 
 }
 
