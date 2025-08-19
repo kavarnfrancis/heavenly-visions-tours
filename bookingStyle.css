@@ -15,7 +15,6 @@ button {
     border-color: var(--highlight-colour);
 }
 
-
 button:hover {
     background-color: var(--secondary-colour);
 
@@ -28,36 +27,22 @@ button:active {
 }
 
 
-
 #centre {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
-}
+    margin: 15px;
 
-.subHeading {
-    align-self: start;
 }
-
-.bookingSection {
-    border-style: double;
-    border: 0;
-    border: 10px;
-    border-color: var(--base-colour);
-}
-
 
 #bookingForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-bottom: 15px;
-    margin: 20px;
-    flex-grow: 1;
-
+    flex: 1;
 }
 
 
@@ -66,16 +51,53 @@ button:active {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin: 20px;
-    flex-grow: 1;
+    flex: 1;
+
 }
 
 #finalizeForm {
     align-self: flex-end;
-    order: 3;
-    margin: 20px
-    
+    display: flex;
+    justify-content: space-around;
+    flex: 0;
+
 }
+
+
+.redText {
+    color:#FF0000;
+}
+
+
+
+.subHeading1 {
+    justify-self: start;
+    flex-grow: 1;
+
+}
+
+.subheading2 {
+    
+    justify-self: start;
+    margin-left: 20%;
+}
+
+.subheading3 {
+    justify-self: start;
+    margin-left: 30%;
+
+}
+
+.bookingSection {
+    flex: 1;
+    border-style: double;
+    border: 1px solid #999;
+    border-color: var(--base-colour);
+
+}
+
+
+
 
 
 
