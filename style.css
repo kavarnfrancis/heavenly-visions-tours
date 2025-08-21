@@ -1,5 +1,6 @@
 
 
+
 :root {
     --primary-colour:  rgb(224, 217, 255);
     --secondary-colour: rgb(104, 56, 114);
@@ -55,5 +56,46 @@ header a{
 
 header a:visited{
     color: var(--highlight-colour);
+
 }
 
+/* gallery stuff */
+.parent-gallery{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(590px,1fr));
+    background-color: black;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 15px;
+    place-items: center;
+}
+
+.gallery-subheader{
+    color:var(--primary-colour);
+    font-size: 20px
+}
+
+.blurb-parent{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr) ;
+    margin-left: 15%;
+    margin-right: 15%;
+    place-items: center;
+}
+.blurb-textbox{
+    width: clamp(23ch, 50%, 46ch);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: rgb(94, 48, 106);
+    padding-right: 40px;
+    
+}
+
+.blurb-text{
+   color: lightgrey;
+}
