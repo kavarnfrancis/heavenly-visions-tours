@@ -54,6 +54,10 @@ header a{
     padding: 5px;
 }
 
+header a:hover{
+    background-color: var(--highlight-colour);
+}
+
 header a:visited{
     color: var(--font-colour);
 }
