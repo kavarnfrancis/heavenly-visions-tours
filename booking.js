@@ -1,48 +1,35 @@
-
-// extra selection choices
-const tourSel = document.getElementsByName('tourSel'); // radio
-const packageSel = document.getElementsByName('packageSel');
-const accommodationSel = document.getElementById('accommodationSel'); // checkbox
-const cateringSel = document.getElementById('cateringSel');
-
-
-// extra selection expanding
-const bedSection = document.getElementById('bedSection');
-const allergenSection = document.getElementById('allergenSection');
-const addressSection = document.getElementById('addressSection');
-
-const nutsSection = document.getElementById('nutsSection');
-
-// extra selection more options
-const doubleBedInput = document.getElementsByName('doubleBedInput');
-const singleBedInput = document.getElementsByName('singleBedInput');
-
-const dietToggle = document.getElementsByName('diet');
-const dietMisc = document.getElementsByName('dietMisc');
-
-
-const allergyToggle = document.getElementsByName('allergen');
-const allergyMisc = document.getElementsByName('allergyMisc');
-
-
-const reqField = document.getElementsByClassName('reqField');
-
-const allInputs = document.getElementsByTagName('input');
-const clearFormBtn = document.getElementById('clearButton');
-const checkoutBtn = document.getElementById('checkoutButton');
-
-
-clearFormBtn.addEventListener('click', clearOrder);
+import * as loader from 'bookingLoader.js';
 
 
 
 
-function checkReqField(check, value, text){
+console.log(loader.accomSelected)
+
+
+const standardCostAmount = 20;
+const specialCostAmount = 35;
+
+loader.standardCostDiv.innerHTML = `$${standardCostAmount}`;
+loader.specialCostDiv.innerHTML = `$${specialCostAmount}`;
+
+const singleBedCost = 50;
+const doubleBedCost = 80;
+
+loader.singleBedCostDiv.innerHTML = `$${singleBedCost}`;
+loader.doubleBedCostDiv.innerHTML = `$${doubleBedCost}`;
+
+
+
+
+
+
+
+function checkReqField(check = false, value = "null", text = "null"){
 
     let foundField;
 
-    Array.from(reqField).forEach (field => {
-        if (field.getAttribute('value') == value){
+    Array.from(loader.reqField).forEach (field => {
+        if (field.value == value){
             foundField = field
         }
     });
@@ -55,70 +42,112 @@ function checkReqField(check, value, text){
     }
 }
 
-let tour = '';
+let tourSelected = '';
 let tourCost = 0;
-let tourSelected = false;
+let isTourSelected = false;
 
 // tours
-for (let selection of tourSel){
-    selection.addEventListener('change', (event => {
-        tourSelected = true;
-        checkReqField(tourSelected, 'tour', 'Tour')
+for (let selection of loader.tourSel){
+    selection.addEventListener('change', (e) => {
+        isTourSelected = true;
+        checkReqField(isTourSelected, 'tour', 'Tour')
 
-        switch (selection.value){
+        switch (e.target.value){
             case 'halberryPass':
-                tour = 'Halberry Pass';
-                tourCost = 20;
+                tourSelected = 'Halberry Pass';
+                tourCost = 40;
             break;
             case 'pintoReserve':
-                tour = 'Pinto Reserve';
-                tourCost = 20;
+                tourSelected = 'Pinto Reserve';
+                tourCost = 30;
             break;
             case 'bulderOutlook':
-                tour = 'Bulder Outlook';
-                tourCost = 20;
+                tourSelected = 'Bulder Outlook';
+                tourCost = 50;
             break;
         }
 
         console.log(selection.value);
         updateOrder();
         
-    }));
+    });
 }
 
-let package = '';
+
+let packageSelected = '';
 let packageCost = 0;
-let packageSelected = false;
+let isPackageSelected = false;
 
 // package
-for (let selection of packageSel){
+for (let selection of loader.packageSel){
+    selection.addEventListener('change', (e) => {
+        isPackageSelected = true;
+        checkReqField(isPackageSelected, 'package', 'Package');
 
-    selection.addEventListener('change', (event => {
-        packageSelected = true;
-        checkReqField(packageSelected, 'package', 'Package');
-
-        if (selection.value == 'standard'){
-            packageCost = 0;
-        } else {
-            packageCost = 20;
+        switch (e.target.value) {
+            case 'standard':
+                packageSelected = "Standard";
+                packageCost = 1;
+            break;
+            case 'special':
+                packageSelected = "Specialized";
+                packageCost = 1.2;
+            break;
         }
+
         console.log(selection.value);
         updateOrder();
-    }));
+    });
 }
+
+
+
+loader.bedSection.hidden = true;
+let accomSelected = false;
+loader.accommodationSel.addEventListener('change', (e) => {
+    loader.bedSection.hidden = !e.target.checked; 
+    accomSelected = e.target.checked; 
+});
+
+let bedsSelected = 0;
+const bedBaseCost = 50;
+
+
+
+loader.cateringHideSection.hidden = true;
+let isCateringSelected = false;
+loader.cateringSel.addEventListener('change', (e) => {
+    loader.cateringHideSection.hidden = !e.target.checked;
+    isCateringSelected = true;
+    
+});
+
+
+
+loader.addressSection.hidden = true;
+let isTransportSelected = false;
+loader.transportSel.addEventListener('change', (e) => {
+    loader.addressSection.hidden = !e.target.checked;
+    isTransportSelected = e.target.checked;
+})
 
 
 
 
 function updateOrder(){
-    let cost = tourCost + packageCost;
-    
-
+    const cost = 
+    tourCost * ( packageCost + (bedsSelected * bedBaseCost));
 
 }
 
+
+
+
+
+loader.clearFormBtn.addEventListener('click', clearOrder);
+
 function clearOrder(){
-    Array.from(allInputs).forEach(input =>
+    Array.from(loader.allInputs).forEach(input =>
     {
         switch (input.type){
             case 'checkbox' :
@@ -132,30 +161,25 @@ function clearOrder(){
         }
     });
 
-    tour = '';
+    tourSelected = '';
     tourCost = 0;
-    tourSelected = false;
-    checkReqField(tourSelected, 'tour', 'Tour');
-    package = '';
+    isTourSelected = false;
+    checkReqField(isTourSelected, 'tour', 'Tour');
+    packageSelected = '';
     packageCost = 0;
-    packageSelected = false;
-    checkReqField(packageSelected, 'package', 'Package');
-
-
+    isPackageSelected = false;
+    checkReqField(isPackageSelected, 'package', 'Package');
     updateOrder();
 }
 
 
 
-let addressEntered = false;
-let bedsEntered = false;
+let isAddressEntered = false;
+let areBedsEntered = false;
 
 
 checkReqField(tourSelected, 'tour', 'Tour')
-checkReqField(packageSelected, 'package', 'Package');
-checkReqField(addressEntered, 'addressInput', 'Address');
-checkReqField(bedsEntered, 'bedsInput', 'Beds');
-
-
-
+checkReqField(isPackageSelected, 'package', 'Package');
+checkReqField(isAddressEntered, 'addressInput', "Address : ");
+checkReqField(areBedsEntered, 'bedsInput', 'Beds : ');
 
