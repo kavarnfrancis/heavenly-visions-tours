@@ -55,8 +55,7 @@ header a{
 }
 
 header a:visited{
-    color: var(--highlight-colour);
-
+    color: var(--font-colour);
 }
 
 /* gallery stuff */
