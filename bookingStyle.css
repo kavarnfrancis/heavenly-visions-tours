@@ -2,6 +2,11 @@
 @import url('style.css');
 
 
+/* Use of important to get around issues with display attribute */
+[hidden] {
+    display: none !important;
+}
+
 
 section  {
     background-color: var(--primary-colour);
@@ -76,9 +81,11 @@ input[type = 'radio']:not(:checked){
 }
 
 #finalizeForm {
+    align-self: flex-end;
     display: flex;
     justify-content: space-around;
     flex: 1;
+    order: 3;
 }
 
 
@@ -126,13 +133,6 @@ input:has(+.subheading2):hover{
 }
 
 
-
-
-
-/* Use of important to get around issues with display attribute */
-[hidden] {
-    display: none !important;
-}
 
 
 

@@ -1,22 +1,58 @@
-import * as loader from 'bookingLoader.js';
+// extra selection choices
+const tourSel = document.getElementsByName('tourSel'); // radio
+const packageSel = document.getElementsByName('packageSel');
+const accommodationSel = document.getElementById('accommodationSel'); // checkbox
+const cateringSel = document.getElementById('cateringSel');
+const transportSel = document.getElementById('transportSel');
 
 
+// extra selection expanding
+const bedSection = document.getElementById('bedSection');
+const cateringHideSection = document.getElementById('cateringHideSection');
+ 
+const addressSection = document.getElementById('addressSection');
 
 
-console.log(loader.accomSelected)
+// extra selection more options
+const doubleBedInput = document.getElementsByName('doubleBedInput');
+const singleBedInput = document.getElementsByName('singleBedInput');
+
+const dietToggle = document.getElementsByName('diet');
+const dietMisc = document.getElementsByName('dietMisc');
+
+const allergyToggle = document.getElementsByName('allergen');
+const allergyMisc = document.getElementsByName('allergyMisc');
+
+
+const reqField = document.getElementsByClassName('reqField');
+
+
+const allInputs = document.getElementsByTagName('input');
+const clearFormBtn = document.getElementById('clearButton');
+const checkoutBtn = document.getElementById('checkoutButton');
+ 
+
+// cost replacing
+const standardCostDiv = document.getElementById('standardCost');
+const specialCostDiv = document.getElementById('specialCost');
+ 
+const singleBedCostDiv = document.getElementById('singleBedCost');
+const doubleBedCostDiv = document.getElementById('doubleBedCost');
+
+
 
 
 const standardCostAmount = 20;
 const specialCostAmount = 35;
 
-loader.standardCostDiv.innerHTML = `$${standardCostAmount}`;
-loader.specialCostDiv.innerHTML = `$${specialCostAmount}`;
+standardCostDiv.innerHTML = `$${standardCostAmount}`;
+specialCostDiv.innerHTML = `$${specialCostAmount}`;
 
 const singleBedCost = 50;
 const doubleBedCost = 80;
 
-loader.singleBedCostDiv.innerHTML = `$${singleBedCost}`;
-loader.doubleBedCostDiv.innerHTML = `$${doubleBedCost}`;
+singleBedCostDiv.innerHTML = `$${singleBedCost}`;
+doubleBedCostDiv.innerHTML = `$${doubleBedCost}`;
 
 
 
@@ -28,7 +64,7 @@ function checkReqField(check = false, value = "null", text = "null"){
 
     let foundField;
 
-    Array.from(loader.reqField).forEach (field => {
+    Array.from(reqField).forEach (field => {
         if (field.value == value){
             foundField = field
         }
@@ -47,7 +83,7 @@ let tourCost = 0;
 let isTourSelected = false;
 
 // tours
-for (let selection of loader.tourSel){
+for (let selection of tourSel){
     selection.addEventListener('change', (e) => {
         isTourSelected = true;
         checkReqField(isTourSelected, 'tour', 'Tour')
@@ -79,7 +115,7 @@ let packageCost = 0;
 let isPackageSelected = false;
 
 // package
-for (let selection of loader.packageSel){
+for (let selection of packageSel){
     selection.addEventListener('change', (e) => {
         isPackageSelected = true;
         checkReqField(isPackageSelected, 'package', 'Package');
@@ -102,10 +138,10 @@ for (let selection of loader.packageSel){
 
 
 
-loader.bedSection.hidden = true;
+bedSection.hidden = true;
 let accomSelected = false;
-loader.accommodationSel.addEventListener('change', (e) => {
-    loader.bedSection.hidden = !e.target.checked; 
+accommodationSel.addEventListener('change', (e) => {
+    bedSection.hidden = !e.target.checked; 
     accomSelected = e.target.checked; 
 });
 
@@ -114,20 +150,20 @@ const bedBaseCost = 50;
 
 
 
-loader.cateringHideSection.hidden = true;
+cateringHideSection.hidden = true;
 let isCateringSelected = false;
-loader.cateringSel.addEventListener('change', (e) => {
-    loader.cateringHideSection.hidden = !e.target.checked;
+cateringSel.addEventListener('change', (e) => {
+    cateringHideSection.hidden = !e.target.checked;
     isCateringSelected = true;
     
 });
 
 
 
-loader.addressSection.hidden = true;
+addressSection.hidden = true;
 let isTransportSelected = false;
-loader.transportSel.addEventListener('change', (e) => {
-    loader.addressSection.hidden = !e.target.checked;
+transportSel.addEventListener('change', (e) => {
+    addressSection.hidden = !e.target.checked;
     isTransportSelected = e.target.checked;
 })
 
@@ -144,10 +180,10 @@ function updateOrder(){
 
 
 
-loader.clearFormBtn.addEventListener('click', clearOrder);
+clearFormBtn.addEventListener('click', clearOrder);
 
 function clearOrder(){
-    Array.from(loader.allInputs).forEach(input =>
+    Array.from(allInputs).forEach(input =>
     {
         switch (input.type){
             case 'checkbox' :
@@ -171,7 +207,6 @@ function clearOrder(){
     checkReqField(isPackageSelected, 'package', 'Package');
     updateOrder();
 }
-
 
 
 let isAddressEntered = false;
