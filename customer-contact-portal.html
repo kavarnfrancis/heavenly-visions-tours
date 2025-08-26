@@ -1,47 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Customer Contact Portal</title>
-  </head>
-  <body>
-    <div>
-      <h1>Contact Customer Portal</h1>
-      <input type="date" />
-      <div>
-        <input type="checkbox" id="morning-tour" />
-        <label>Morning Tour</label>
-        <input type="checkbox" id="afternoon-tour" />
-        <label>Afternoon Tour</label>
-        <input type="checkbox" id="evening-tour" />
-        <label>Evening Tour</label>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<div class="portal-container">
+  <header>
+    <h1>Customer Contact Portal</h1>
+  </header>
+
+  <form id="contact-form">
+    <!-- Section for Date and Tour Time -->
+    <div class="form-section">
+      <label for="tour-date-input">Select Tour Date & Time</label>
+      <input type="date" id="tour-date-input" name="tour-date" />
+      <div class="flex" style="margin-top: 15px;">
+        <div class="flex items-center">
+          <input type="checkbox" id="morning-tour" name="tour-time" value="morning" />
+          <label for="morning-tour">Morning Tour</label>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="afternoon-tour" name="tour-time" value="afternoon" />
+          <label for="afternoon-tour">Afternoon Tour</label>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="evening-tour" name="tour-time" value="evening" />
+          <label for="evening-tour">Evening Tour</label>
+        </div>
       </div>
-      <div>
-        <input type="checkbox" />
-        <label>All customers</label>
+    </div>
+
+    <!-- Section for Customer Selection -->
+    <div class="form-section">
+      <label>Who to Contact?</label>
+      <div style="margin-top: 10px;">
+        <div style="margin-bottom: 10px;">
+          <input type="radio" id="all-customers" name="customer-target" value="all" checked>
+          <label for="all-customers">All customers</label>
+        </div>
+        <div>
+          <input type="radio" id="individual-customer" name="customer-target" value="individual">
+          <label for="individual-customer">Individual Customer</label>
+        </div>
       </div>
-      <div>
-        <label>Individual Customer</label>
+
+      <div id="customer-select-dropdown" class="hidden" style="margin-top: 15px;">
+        <label for="customers">Select Individual Customer:</label>
         <select name="customers" id="customers">
-          <option>Adam Scott</option>
-          <option>Michael Cera</option>
-          <option>Michael Phelps</option>
-          <option>Michelle Obama</option>
+          <option value="">Select a customer...</option>
+          <option value="adam-scott">Adam Scott</option>
+          <option value="michael-cera">Michael Cera</option>
+          <option value="michael-phelps">Michael Phelps</option>
+          <option value="michelle-obama">Michelle Obama</option>
         </select>
       </div>
     </div>
-    <form>
-      <label for="message">Enter your message:</label><br />
-      <textarea
-        id="message"
-        name="user_message"
-        rows="5"
-        cols="40"
-        placeholder="Type your message here..."
-      ></textarea
-      ><br />
-      <input type="submit" value="Send Message" />
-    </form>
-  </body>
+
+    <!-- Section for Message -->
+    <div class="form-section">
+      <label for="message">Enter your message:</label>
+      <textarea id="message" name="user_message" rows="5" placeholder="Type your message here..."></textarea>
+    </div>
+
+    <input type="submit" value="Send Message" class="submit-button" />
+  </form>
+</div>
+
 </html>
