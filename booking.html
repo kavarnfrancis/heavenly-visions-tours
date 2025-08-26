@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bookingStyle.css">
+    <script src="booking.js" defer></script>
+</head>
+
+
+<body>
+    <header>
+        <h1>Heavenly Visions</h1>
+        <nav>
+            <a class="navButton" href="index.html">Home</a>
+            <a class="navButton" href="booking.html">Book</a>
+            <a class="navButton admin" href="customer-contact-portal.html">Contact Portal</a> <!-- if user is not admin, then visibility = hidden.-->
+            <a class="navButton" href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+    
+    <form id="centre">
+
+        <section id="bookingForm">
+
+            <h2>Booking :</h2>
+
+            <h3 class="subheading1 reqField" value="tour">Tour</h3>
+            <div class="bookingSection" id="tourSelect">
+
+                <div class="radioSelector">
+                    <label for="halberryPass">Halberry Pass</label>
+                    <input type="radio" name="tourSel" value="halberryPass"> 
+                </div>
+                
+                <div class="radioSelector">
+                    <label for="pintoReserve">Pinto Reserve</label>
+                    <input type="radio" name="tourSel" value="pintoReserve">
+                </div>
+
+                <div class="radioSelector">
+                    <label for="bulderOutlook">Bulder Outlook</label>
+                    <input type="radio" name="tourSel" value="bulderOutlook">
+                </div>
+                
+            </div>
+
+            <h3 class="subheading1 reqField" class="reqField" value="package">Package</h3>
+            <div class="bookingSection"  id="packageSelect">
+                
+                <div class="radioSelector">
+                    <label for="standard">Standard - <span id="standardCost"></span></label>
+                    <input type="radio" name="packageSel" value="standard"> 
+                </div>
+                <div class="radioSelector">
+                    <label for="special">Specialized - <span id="specialCost"></span></label>
+                    <input type="radio" name="packageSel" value="special"> 
+                </div>
+            </div>
+
+            <h3 class="subheading1">Extras</h3>
+            <div class="bookingSection"  id="extrasSelect">
+
+
+                <div id="accommodationSection" class="detailsPanel">
+                    <input type="checkbox" id="accommodationSel">
+                    <label for="accommodationSel" class="subheading2">Accommodation</label>
+                    <div id="bedSection">
+                        <h5 class="subheading3 reqField" value="bedsInput">Beds :</h5>
+                        <label for="singleBedInput">Single : (<span id="singleBedCost"></span> ) x </label>
+                        <input class="numberInput" type="number" name="singleBedInput"> 
+                        <label for="doubleBedInput">Double : (<span id="doubleBedCost"></span> ) x </label>
+                        <input class="numberInput" type="number" name="doubleBedInput">
+                    </div>
+                </div>
+                
+
+                <div id="cateringSection" class="detailsPanel">
+                    <input type="checkbox" id="cateringSel"> 
+                    <label for="cateringSel" class="subheading2">Catering</label>
+
+                    <div id="cateringHideSection">
+                        <div id="dietSection">
+                            <h5 class="subheading3">Dietary Options :</h5>
+                            <p>Vegetarian <input type="checkbox" name="diet" value="vegetarian"></p>
+                            <p>Pescatarian <input type="checkbox" name="diet" value="pescatarian"></p>
+                            <p>Vegan <input type="checkbox" name="diet" value="vegan"></p>
+                            <p>Keto <input type="checkbox" name="diet" value="keto"></p>
+                            <p>Paleo <input type="checkbox" name="diet" value="paleo"></p>
+                            <p>Other <input name="dietMisc"></p>
+                        </div>
+                        
+                        <div id="allergenSection"> 
+                            <h5 class="subheading3">Allergens :</h5>
+                            <p>Dairy allergy / intolerance <input type="checkbox" name="allergen" value="dairy"> </p>
+                            <p>Gluten-free / Coeliac <input type="checkbox" name="allergen" value="gluten"> </p>
+                            <p>Soy allergy <input type="checkbox" name="allergen" value="soy"> </p>
+                            <p>Nut allergy <input type="checkbox" name="allergen" value="nut"> </p>
+                            <p>Red meat <input type="checkbox" name="allergen" value="meat"> </p>
+                            <p>Other <input name="allergyMisc"></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+
+                <div id="transportSection" class="detailsPanel">
+                    <input type="checkbox" id="transportSel"> 
+                    <label for="transportSel" class="subheading2">Transport</label>
+
+                    <div id="addressSection">
+                        <label for="addressInput" class="reqField" value="addressInput">Address :</label>
+                        <input type="text" id="addressInput">
+                    </div>
+                </div>
+                
+            </div>
+            
+            <h3 class="subheading1">Notes</h3>
+            <div class="bookingSection">
+                <div id="notesSection">
+                    <input name="notesInput">
+                </div>
+            </div>
+            
+
+        </section>
+
+        <section id="receiptForm">
+            <h2>Order : </h2>
+            <p id=""></p>
+            
+        </section>
+
+        <section id="finalizeForm">
+            <button id="clearButton">Clear Form</button>
+            <button type="submit" id="checkoutButton">Checkout</button>
+        </section>
+
+    </form>
+    
+
+
+</body>
+
+</html>

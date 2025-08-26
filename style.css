@@ -4,7 +4,7 @@
 :root {
     --primary-colour:  rgb(224, 217, 255);
     --secondary-colour: rgb(104, 56, 114);
-    --highlight-colour: rgb(135, 18, 145);
+    --highlight-colour: rgb(242, 170, 249);
     --base-colour: rgb(53, 53, 53);
     --font-colour: rgb(65, 65, 65);
 
@@ -54,9 +54,12 @@ header a{
     padding: 5px;
 }
 
-header a:visited{
-    color: var(--highlight-colour);
+header a:hover{
+    background-color: var(--highlight-colour);
+}
 
+header a:visited{
+    color: var(--font-colour);
 }
 
 /* gallery stuff */
